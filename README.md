@@ -12,7 +12,7 @@ A tip calculator that evaluates a tip based on the bill amount, chosen %, and # 
 
 ## Still to-do
 * Error states
-* Mobile styling/reponsiveness 
+* Improve mobile styling
 * Add icons to input fields
 * logo 
 * better font
