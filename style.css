@@ -155,6 +155,10 @@ input[type="radio"]:checked:hover + label {
     background:none;
 }
 
+#custom-input:hover {
+    cursor:pointer;
+}
+
 #custom-input::placeholder {
     color:#00474B;
     font-size:1.2rem;
