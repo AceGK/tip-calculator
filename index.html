@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    
+<section class="wrapper">
+    <container>
+        <div class="logo">
+            <h1>Tip Calculator</h1>
+        </div>
+        <container class="container">
+            <section class="box1">
+                <div>
+                    <p>Bill</p>
+                    <input type="number" id="bill" step="0.01" min="0"placeholder="0" pattern="^\d*(\.\d{0,2})?$" >
+                </div>
+
+                <div>
+                    <p>Select %</p>
+                    <div class="buttons-container">
+                        <input type="radio" id="fivePercent" name="tip-percent" value="5">
+                        <label for="fivePercent">5%</label>
+
+                        <input type="radio" id="tenPercent" name="tip-percent" value="10">
+                        <label for="tenPercent" class="radioButton">10%</label>
+
+                        <input type="radio" id="fifteenPercent" name="tip-percent" value="15">
+                        <label for="fifteenPercent">15%</label>
+
+                        <input type="radio" id="twentyPercent" name="tip-percent" value="20">
+                        <label for="twentyPercent">20%</label>
+
+                        <input type="radio" id="twentyFivePercent" name="tip-percent" value="25">
+                        <label for="twentyFivePercent">25%</label>
+
+                        <input type="radio" id="custom-number" name="tip-percent" value="">
+                        <label for="custom-number">Custom</label>
+                    </div>
+                </div>
+
+                <div id="custom-number-div" style="display:none;">
+                    <p>Enter Custom Number</p>
+                    <input type="number" name="custom-input" id="custom-input" placeholder="0"/>
+                </div>
+
+                <div>
+                    <p>Number of People</p>
+                    <input type="number" id="people" placeholder="1" value="1" min="1" step="1">
+                </div>
+                <div>
+                 
+                </div>
+            </section>
+
+            <section class="box2">
+                    <div>
+                        <p>Tip <br> <span>/ person</span></p>
+                        <p id="tip">$0.00</p>
+                    </div>
+                    <div>
+                        <p>Price <br> <span>/ person</span></p>
+                        <p id="total">$0.00</p>
+                    </div>
+                <div>
+                    <button id="reset">reset</button>
+                </div>
+            </section>
+        </container>
+    </container>
+</section>
+
+
+</body>
+</html>
