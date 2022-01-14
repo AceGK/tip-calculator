@@ -29,7 +29,10 @@ function calculateTip() {
     document.getElementById("tip").innerHTML = numUSD.format(tip);
     document.getElementById("total").innerHTML = numUSD.format(total);
 
+    //add reset button styles
+    document.getElementById("reset").classList.remove('reset-faded');
 }
+
 
 
 // calculateTip() on key up and input click
@@ -42,15 +45,17 @@ let ele = document.querySelectorAll("input");
 
 //  reset
 document.getElementById("reset").onclick = function() {
+    
+    document.getElementById("reset").classList.add('reset-faded');
+    document.getElementById("bill").value = "";
+    document.getElementById("people").value = "";
+    document.getElementById("tip").innerText = "$0.00";
+    document.getElementById("total").innerText = "$0.00";
 
-        document.getElementById("bill").value = "";
-        document.getElementById("people").value = "";
-        document.getElementById("tip").innerText = "$0.00";
-        document.getElementById("total").innerText = "$0.00";
-        document.getElementById('custom-number-div').style.display = "none"; 
-        var ele = document.getElementsByName("tip-percent");
-        for(var i=0;i<ele.length;i++)
-           ele[i].checked = false;
+    // uncheck radio
+    var btn = document.getElementsByName("tip-percent");
+    for(var i=0;i<btn.length;i++) 
+        btn[i].checked = false; 
 
 }  
 
@@ -60,7 +65,7 @@ document.getElementById('custom-input').onclick = function () {
     console.log("hello")
 }
 
-// reset custom placeholder text on click other radio
+// reset 'custom' placeholder text on click other radio
 let radios = document.querySelectorAll("input[type=radio][name=tip-percent]:not(#custom-number)");
 for(var i = 0; i < radios.length; i++) {
     radios[i].addEventListener('click', function() {
@@ -68,7 +73,12 @@ for(var i = 0; i < radios.length; i++) {
     });
 }
 
+
+
+
+
 // deprecated
+
 // // toggle display visibility for custom-number-div 
 // document.getElementById("custom-number").onclick = function() {
 //     let x = document.getElementById('custom-number-div'); 
