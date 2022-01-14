@@ -19,7 +19,7 @@
             <section class="box1">
                 <div>
                     <p>Bill</p>
-                    <input type="number" id="bill" step="0.01" min="0"placeholder="0" pattern="^\d*(\.\d{0,2})?$" >
+                    <input type="number" id="bill" step="0.01" min="0"placeholder="0" pattern="^\d*(\.\d{0,2})?$" autocomplete="off">
                 </div>
 
                 <div>
@@ -29,7 +29,7 @@
                         <label for="fivePercent">5%</label>
 
                         <input type="radio" id="tenPercent" name="tip-percent" value="10">
-                        <label for="tenPercent" class="radioButton">10%</label>
+                        <label for="tenPercent">10%</label>
 
                         <input type="radio" id="fifteenPercent" name="tip-percent" value="15">
                         <label for="fifteenPercent">15%</label>
@@ -41,36 +41,42 @@
                         <label for="twentyFivePercent">25%</label>
 
                         <input type="radio" id="custom-number" name="tip-percent" value="">
-                        <label for="custom-number">Custom</label>
+                        <label for="custom-number">
+                        <input type="number" name="custom-input" id="custom-input" placeholder="Custom" autocomplete="off" data-placeholder="%"/></label>
                     </div>
-                </div>
-
-                <div id="custom-number-div" style="display:none;">
-                    <p>Enter Custom Number</p>
-                    <input type="number" name="custom-input" id="custom-input" placeholder="0"/>
                 </div>
 
                 <div>
                     <p>Number of People</p>
-                    <input type="number" id="people" placeholder="1" value="1" min="1" step="1">
+                    <input type="number" id="people" placeholder="0" min="1" step="1" autocomplete="off">
                 </div>
                 <div>
                  
                 </div>
             </section>
 
-            <section class="box2">
-                    <div>
-                        <p>Tip <br> <span>/ person</span></p>
-                        <p id="tip">$0.00</p>
+            <section class="results">
+                    <div class="item">
+                        <div>
+                            <p>Price</p>
+                            <p>/ person</p>
+                        </div>
+                        <div>
+                            <p id="tip">$0.00</p>
+                        </div>
                     </div>
-                    <div>
-                        <p>Price <br> <span>/ person</span></p>
-                        <p id="total">$0.00</p>
+                    <div class="item">
+                        <div>
+                            <p>Price</p>
+                            <p>/ person</p>
+                        </div>
+                        <div>
+                            <p id="total">$0.00</p>
+                        </div>
                     </div>
-                <div>
-                    <button id="reset">reset</button>
-                </div>
+                    <div class="reset-container">
+                        <button id="reset">reset</button>
+                    </div>
             </section>
         </container>
     </container>

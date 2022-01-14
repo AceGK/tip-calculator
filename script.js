@@ -49,22 +49,8 @@ document.getElementById("reset").onclick = function() {
 
 }  
 
-
-// toggle display visibility for custom-number-div 
-document.getElementById("custom-number").onclick = function() {
-    let x = document.getElementById('custom-number-div'); 
-    if (x.style.display === "none") {
-     x.style.display = "block";
-   } else {
-     x.style.display = "none";
-   }
-}  
-
-
-// hide custom-number-div if click any radio button except #custom-number
-let radios = document.querySelectorAll("input[type=radio][name=tip-percent]:not(#custom-number)");
-for(var i = 0; i < radios.length; i++) {
-    radios[i].addEventListener("click", function() {
-        document.getElementById('custom-number-div').style.display = "none";
-    });
+// nested input[text] inside input[checkbox] registers click
+document.getElementById('custom-input').onclick = function () {
+    document.getElementById('custom-number').checked = true;
+    console.log("hello")
 }
