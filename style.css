@@ -198,10 +198,13 @@ input[type="radio"]:checked:hover + label {
 
 .reset-faded {
     opacity:.5;
+    pointer-events: none;
+    background:#00474B;
 }
 
 .reset-faded:hover {
    opacity:.5;
+   background:#00474B;
 }
 
 /* Chrome, Safari, Edge, Opera */
