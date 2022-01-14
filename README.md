@@ -6,16 +6,16 @@ A tip calculator that evaluates a tip based on the bill amount, chosen %, and # 
 * Simple math
 * Custom tip %
 * Reset button
+* Active states
 * USD number formatting
 * CSS grid + flexbox
 
 ## Still to-do
 * Error states
-* button initial state (faded out)
 * Mobile styling/reponsiveness 
 * Add icons to input fields
 * logo 
 * better font
 * dark-mode 
 
-I based this on a the challenge from [Frontend Mentor](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX), although I'm not apart of this community. 
+I based this on a the challenge from [Frontend Mentor](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX), although I'm not (yet) a part of this community. 
