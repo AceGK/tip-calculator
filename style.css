@@ -67,16 +67,21 @@ input[type="radio"] {
     border-radius: 20px;
 }
 
-.container {
+.grid-container {
     display: grid; 
     grid-template-columns: 1fr 1fr;
     background:white;  
     padding:25px;
     border-radius:20px;
+    gap:25px;
 }
 
 .box1 {
     color:#00474B;
+}
+.box1 div {
+    margin-left:0;
+    margin-right:0;
 }
 
 .results {
@@ -152,6 +157,7 @@ input[type="radio"]:checked:hover + label {
 
 #custom-input::placeholder {
     color:#00474B;
+    font-size:1.2rem;
 }
 
 #custom-number + label {
@@ -165,23 +171,6 @@ input[type="radio"]:checked:hover + label {
     border:2px solid #9EE8DF;
 }
 
-button {
-    background:#26C1AD;
-    color:white;
-    border:none;
-    outline:none;
-    padding: 15px 10px;
-    border-radius:5px;
-    font-size:1.2rem;
-    text-align: center;
-}
-
-button:hover {
-    background:#00474B;
-    cursor:pointer;
-    color:#26C1AD;
-}
-
 #tip, #total {
     color:#26C1AD;
     font-size:2rem;
@@ -189,13 +178,22 @@ button:hover {
 
 #reset {
     width:100%;
+    font-weight: bold;
+    text-transform: uppercase;
+    background:#26C1AD;
     color:#00474B;
     border:1px solid #26C1AD;
-    text-transform: uppercase;
+    border-radius:5px;
+    outline:none;
+    padding: 15px 10px;
+    font-size:1.2rem;
+    text-align: center;
 }
 
 #reset:hover {
-   color:white;
+    background:#9EE8DF;
+    cursor:pointer;
+    color:#00474B;
 }
 
 /* Chrome, Safari, Edge, Opera */

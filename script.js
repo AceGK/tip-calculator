@@ -2,6 +2,11 @@ function calculateTip() {
     let bill = document.getElementById("bill").value;
     let people = document.getElementById('people').value;
 
+    // null warning
+    // if  (document.getElementById("bill").value <= 0.01) {
+    //     document.getElementById('item-bill').getElementsByTagName("p").after("hello");
+    // }
+
     // set percentage variable to custom-input value, or else set to selected radio button
     if (document.getElementById('custom-number').checked == true ) {
         var percentage = document.getElementById("custom-input").value;
@@ -54,3 +59,31 @@ document.getElementById('custom-input').onclick = function () {
     document.getElementById('custom-number').checked = true;
     console.log("hello")
 }
+
+// reset custom placeholder text on click other radio
+let radios = document.querySelectorAll("input[type=radio][name=tip-percent]:not(#custom-number)");
+for(var i = 0; i < radios.length; i++) {
+    radios[i].addEventListener('click', function() {
+        document.getElementById('custom-input').value = ""
+    });
+}
+
+// deprecated
+// // toggle display visibility for custom-number-div 
+// document.getElementById("custom-number").onclick = function() {
+//     let x = document.getElementById('custom-number-div'); 
+//     if (x.style.display === "none") {
+//      x.style.display = "block";
+//    } else {
+//      x.style.display = "none";
+//    }
+// }  
+
+
+// // hide custom-number-div if click any radio button except #custom-number
+// let radios = document.querySelectorAll("input[type=radio][name=tip-percent]:not(#custom-number)");
+// for(var i = 0; i < radios.length; i++) {
+//     radios[i].addEventListener("click", function() {
+//         document.getElementById('custom-number-div').style.display = "none";
+//     });
+// }

@@ -11,6 +11,7 @@ A tip calculator that evaluates a tip based on the bill amount, chosen %, and # 
 
 ## Still to-do
 * Error states
+* button initial state (faded out)
 * Mobile styling/reponsiveness 
 * Add icons to input fields
 * logo 

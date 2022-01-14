@@ -15,14 +15,14 @@
         <div class="logo">
             <h1>Tip Calculator</h1>
         </div>
-        <container class="container">
+        <container class="grid-container">
             <section class="box1">
-                <div>
+                <div id="item-bill">
                     <p>Bill</p>
                     <input type="number" id="bill" step="0.01" min="0"placeholder="0" pattern="^\d*(\.\d{0,2})?$" autocomplete="off">
                 </div>
 
-                <div>
+                <div class="item-percent">
                     <p>Select %</p>
                     <div class="buttons-container">
                         <input type="radio" id="fivePercent" name="tip-percent" value="5">
@@ -46,12 +46,9 @@
                     </div>
                 </div>
 
-                <div>
+                <div id="number-of-people">
                     <p>Number of People</p>
                     <input type="number" id="people" placeholder="0" min="1" step="1" autocomplete="off">
-                </div>
-                <div>
-                 
                 </div>
             </section>
 
