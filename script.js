@@ -1,4 +1,4 @@
-
+let percentage = 0;
 
 function calculateTip() {
     let bill = document.getElementById('bill').value;
@@ -9,19 +9,19 @@ function calculateTip() {
     //     document.getElementById('item-bill').getElementsByTagName("p").after("hello");
     // }
 
-    // set percentage variable to the custom-input(%) value if checked, else set to selected radio button
-
-  
+    // set percentage variable to the custom-input(%) value if checked, else set to selected radio button if checked, else set 0%
     if (document.getElementById('custom-number').checked == true ) {
         var percentage = document.getElementById('custom-input').value;
     }
-    else {
+    else if (document.querySelector('input[name=tip-percent]:checked')) {
         var percentage = document.querySelector('input[type=radio][name=tip-percent]:checked').value;
+    }
+    else {
+        var percentage = 0;
     }
 
     //tip math
-
-    let tip = (bill / 100 * percentage / people);
+    let tip = (bill / 100 * (percentage / people));
     let total = (bill / people) + tip ;
     
     // USD formatting
