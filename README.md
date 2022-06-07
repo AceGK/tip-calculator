@@ -14,8 +14,6 @@ A tip calculator that evaluates a tip based on the bill amount, chosen %, and # 
 * Error states
 * Improve mobile styling
 * Add icons to input fields
-* logo 
 * better font
-* dark-mode 
+* dark/light mode toggle
 
-I based this on a the challenge from [Frontend Mentor](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX), although I'm not (yet) a part of this community. 
