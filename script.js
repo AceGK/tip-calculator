@@ -1,3 +1,5 @@
+
+
 function calculateTip() {
     let bill = document.getElementById('bill').value;
     let people = document.getElementById('people').value;
@@ -8,6 +10,8 @@ function calculateTip() {
     // }
 
     // set percentage variable to the custom-input(%) value if checked, else set to selected radio button
+
+  
     if (document.getElementById('custom-number').checked == true ) {
         var percentage = document.getElementById('custom-input').value;
     }
@@ -16,6 +20,7 @@ function calculateTip() {
     }
 
     //tip math
+
     let tip = (bill / 100 * percentage / people);
     let total = (bill / people) + tip ;
     
