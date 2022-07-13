@@ -51,7 +51,7 @@ Users should be able to:
 - Flexbox
 - CSS Grid
 
-## Features 
+### Features 
 * Simple math
 * Custom tip %
 * Reset button
@@ -59,7 +59,7 @@ Users should be able to:
 * USD formatting
 * Light/Dark Modes (based on browser preference)
 
-## To-do
+### To-do
 * Error states
 * Improve mobile styling
 * Add icons to input fields
