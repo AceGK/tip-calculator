@@ -1,0 +1,226 @@
+@import "./mixins";
+
+.logo {
+  text-align: center;
+  padding-bottom: 1rem;
+  svg {
+    fill: var(--clr-text-100);
+    width: 100px;
+    height: 100px;
+
+    @include mobile {
+      width: 50px;
+      height: 50px;
+    }
+  }
+}
+
+.wrapper {
+  padding: 2rem;
+  background: var(--bg3);
+  max-width: 900px;
+  margin: auto;
+  border-radius: 10px;
+  min-height:100vh;
+
+  @include mobile {
+    padding: 0.5rem;
+    border-radius: 0;
+  }
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  flex-wrap: wrap;
+  align-items: center;
+  background: var(--bg4);
+  padding: 2rem;
+  border-radius: 10px;
+  gap: 2rem;
+  box-sizing: border-box;
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+  @include mobile {
+    // background: none;
+    padding: 1rem;
+  }
+}
+
+.userInputs {
+  color: var(--clr-text-100);
+  flex: 1;
+  min-width: 50%;
+}
+
+.inputRow {
+  display: flex;
+  gap: 1rem;
+
+  > div {
+    flex: 1;
+  }
+
+  margin-bottom: 2rem;
+
+  @include mobile {
+    flex-direction: column;
+  }
+}
+
+.formLabel {
+  display: block;
+  font-weight: bold;
+  padding-bottom: 0.5rem;
+}
+
+.buttonsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  > div {
+    margin-top: 0.75rem;
+    flex: 1 0 100%;
+  }
+}
+
+.customTipLabel {
+  position: relative;
+  flex: 1 0 100%;
+
+  input {
+    width: 100%;
+    // padding: 0.75rem 2rem 0.75rem 1rem;
+    font-size: 1.2rem;
+    text-align: center;
+    border: 2px solid var(--bg5);
+    background: var(--bg5);
+    color: var(--clr-text-100);
+    border-radius: 5px;
+    outline: none;
+
+    &::placeholder {
+      color: var(--clr-text-100);
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:focus::placeholder {
+      color: transparent;
+    }
+  }
+}
+
+.results {
+  flex: 1;
+  background: var(--bg1);
+  border-radius: 10px;
+  color: var(--accent5);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+  gap: 2rem;
+  @include mobile {
+    padding: 1rem;
+  }
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 1rem;
+
+  p {
+    padding: 0;
+    margin: 0;
+  }
+
+  div:first-child {
+    p:first-child {
+      font-weight: 500;
+      
+    }
+
+    p:last-child {
+      opacity: 0.5;
+    }
+  }
+
+  div:last-child {
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--accent2);
+  }
+}
+
+.resetContainer {
+  margin-top: auto;
+}
+
+.reset {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  font-size: 1rem;
+  text-transform: uppercase;
+  background: var(--accent2);
+  color: var(--accent1);
+  border: 1px solid var(--accent2);
+  border-radius: 50px;
+  outline: none;
+
+  svg {
+    width: 1.2rem;
+  }
+
+  &:hover {
+    background: var(--accent3);
+    cursor: pointer;
+  }
+}
+
+.resetFaded {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.radioLabel {
+  flex: 1;
+  background: var(--bg3);
+  color: var(--clr-text-100);
+  border: 1px solid var(--bg3);
+  border-radius: 5px;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+
+  input {
+    display: none;
+  }
+
+  &:hover {
+    background: var(--accent3);
+    border-color: var(--accent3);
+    color: var(--accent1);
+  }
+
+  &.selected {
+    background-color: var(--accent2);
+    border-color: var(--accent2);
+    color: var(--accent1);
+  }
+}

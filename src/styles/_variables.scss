@@ -1,0 +1,64 @@
+:root {
+  // Light Theme Palette
+  --clr-light-text-100:        #00474B;
+  --clr-light-text-200:        #484848;
+  --clr-light-border-100:      #bababa;
+  --clr-light-accent1:     #00474B;
+  --clr-light-accent2:     #26C1AD;
+  --clr-light-accent3:     #9EE8DF;
+  --clr-light-accent4:     #C5E4E7;
+  --clr-light-accent5:     #F3F8FB;
+  --clr-light-bg1:         #00474B;
+  --clr-light-bg2:         #9EE8DF;
+  --clr-light-bg3:         #c5e4e7;
+  --clr-light-bg4:         #ffffff;
+  --clr-light-bg5:         #F3F8FB;
+
+  // Dark Theme Palette
+  --clr-dark-text-100:         #e5e5e5;
+  --clr-dark-text-200:         #a4a4a4;
+  --clr-dark-border-100:       #696969;
+  --clr-dark-accent1:      #00474B;
+  --clr-dark-accent2:      #26C1AD;
+  --clr-dark-accent3:      #9EE8DF;
+  --clr-dark-accent4:      #C5E4E7;
+  --clr-dark-accent5:      #F3F8FB;
+  --clr-dark-bg1:          #00474B;
+  --clr-dark-bg2:          #9EE8DF;
+  --clr-dark-bg3:          #111111;
+  --clr-dark-bg4:          #232323;
+  --clr-dark-bg5:          #222222;
+}
+
+// Theme Map — Applied via [data-theme]
+:root[data-theme='light'] {
+  --clr-text-100:      var(--clr-light-text-100);
+  --clr-text-200:      var(--clr-light-text-200);
+  --clr-border-100:    var(--clr-light-border-100);
+  --accent1:   var(--clr-light-accent1);
+  --accent2:   var(--clr-light-accent2);
+  --accent3:   var(--clr-light-accent3);
+  --accent4:   var(--clr-light-accent4);
+  --accent5:   var(--clr-light-accent5);
+  --bg1:       var(--clr-light-bg1);
+  --bg2:       var(--clr-light-bg2);
+  --bg3:       var(--clr-light-bg3);
+  --bg4:       var(--clr-light-bg4);
+  --bg5:       var(--clr-light-bg5);
+}
+
+:root[data-theme='dark'] {
+  --clr-text-100:      var(--clr-dark-text-100);
+  --clr-text-200:      var(--clr-dark-text-200);
+  --clr-border-100:    var(--clr-dark-border-100);
+  --accent1:   var(--clr-dark-accent1);
+  --accent2:   var(--clr-dark-accent2);
+  --accent3:   var(--clr-dark-accent3);
+  --accent4:   var(--clr-dark-accent4);
+  --accent5:   var(--clr-dark-accent5);
+  --bg1:       var(--clr-dark-bg1);
+  --bg2:       var(--clr-dark-bg2);
+  --bg3:       var(--clr-dark-bg3);
+  --bg4:       var(--clr-dark-bg4);
+  --bg5:       var(--clr-dark-bg5);
+}
