@@ -83,7 +83,7 @@ export default function Home() {
               Tip
             </label>
             <div className={styles.buttonsContainer}>
-              {[15, 18, 20, 25].map((val) => {
+              {[15, 20, 25].map((val) => {
                 const isSelected = selectedTip === String(val);
                 return (
                   <label

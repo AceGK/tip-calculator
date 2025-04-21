@@ -57,12 +57,11 @@
 .inputRow {
   display: flex;
   gap: 1rem;
-
+  margin-bottom: 1.5rem;
+  
   > div {
     flex: 1;
   }
-
-  margin-bottom: 2rem;
 
   @include mobile {
     flex-direction: column;

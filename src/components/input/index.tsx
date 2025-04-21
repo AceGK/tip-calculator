@@ -1,5 +1,5 @@
 import styles from './styles.module.scss';
-import { useState, ChangeEvent, FC } from 'react';
+import { ChangeEvent, FC } from 'react';
 
 interface InputFieldProps {
   type: 'text' | 'password' | 'email' | 'number';
@@ -22,19 +22,12 @@ const InputField: FC<InputFieldProps> = ({
   autoComplete = 'off',
   align,
 }) => {
-  const [showPassword, setShowPassword] = useState(false);
 
-  const getInputType = () => {
-    if (type === 'password') {
-      return showPassword ? 'text' : 'password';
-    }
-    return type;
-  };
 
   return (
     <div className={styles.inputContainer}>
       <input
-        type={getInputType()}
+        type={type}
         id={name}
         name={name}
         value={value}

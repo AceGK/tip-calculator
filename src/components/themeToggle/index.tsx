@@ -7,7 +7,7 @@ import Sun from "/public/icons/sun.svg";
 import Moon from "/public/icons/moon.svg";
 
 export default function ThemeToggle() {
-  const { theme, setTheme, resolvedTheme } = useTheme();
+  const { setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   // Avoid hydration mismatch
