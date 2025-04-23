@@ -34,8 +34,8 @@ const InputField: FC<InputFieldProps> = ({
         required={required}
         autoComplete={autoComplete}
         className={align === "right" ? styles.alignRight : styles.alignLeft}
-        inputMode={type === "number" ? "numeric" : undefined}
-        pattern={type === "number" ? "[0-9]*" : undefined}
+        inputMode="decimal"
+        pattern="^\d+(\.\d{0,2})?$"
       />
       <label className={styles.placeholderText} htmlFor={name} id={name}>
         <div className={styles.text}>{placeholderText}</div>
