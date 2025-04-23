@@ -31,7 +31,8 @@
   input[type="date"][value]:not([value=""]) + .placeholderText .text,
   input:-webkit-autofill + .placeholderText .text,
   input:-webkit-autofill:hover + .placeholderText .text,
-  input:-webkit-autofill:focus + .placeholderText .text {
+  input:-webkit-autofill:focus + .placeholderText .text, 
+  input.hasValue + .placeholderText .text {
     border-radius:5px;
     background-color: var(--bg4);
     font-size: 0.8125rem;
@@ -113,10 +114,4 @@
 
 .alignLeft {
   text-align: left;
-}
-
-input.hasValue + .placeholderText .text {
-  font-size: 0.8125rem;
-  transform: translate(0, -1.70em);
-  opacity: 1;
 }
