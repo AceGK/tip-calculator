@@ -1,15 +1,15 @@
-import styles from './styles.module.scss';
-import { ChangeEvent, FC } from 'react';
+import styles from "./styles.module.scss";
+import { ChangeEvent, FC } from "react";
 
 interface InputFieldProps {
-  type: 'text' | 'password' | 'email' | 'number';
+  type: "text" | "password" | "email" | "number";
   name: string;
   value: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   placeholderText: string;
   required?: boolean;
   autoComplete?: string;
-  align?: 'left' | 'right';
+  align?: "left" | "right";
 }
 
 const InputField: FC<InputFieldProps> = ({
@@ -19,11 +19,9 @@ const InputField: FC<InputFieldProps> = ({
   onChange,
   placeholderText,
   required = false,
-  autoComplete = 'off',
+  autoComplete = "off",
   align,
 }) => {
-
-
   return (
     <div className={styles.inputContainer}>
       <input
@@ -35,7 +33,9 @@ const InputField: FC<InputFieldProps> = ({
         aria-labelledby={name}
         required={required}
         autoComplete={autoComplete}
-        className={align === 'right' ? styles.alignRight : styles.alignLeft}
+        className={align === "right" ? styles.alignRight : styles.alignLeft}
+        inputMode={type === "number" ? "numeric" : undefined}
+        pattern={type === "number" ? "[0-9]*" : undefined}
       />
       <label className={styles.placeholderText} htmlFor={name} id={name}>
         <div className={styles.text}>{placeholderText}</div>
