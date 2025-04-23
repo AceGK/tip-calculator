@@ -150,7 +150,6 @@
   div:first-child {
     p:first-child {
       font-weight: 500;
-      
     }
 
     p:last-child {
@@ -192,6 +191,10 @@
   &:hover {
     background: var(--accent3);
     cursor: pointer;
+  }
+  &:focus-visible {
+    outline: 3px solid white; // or whatever color works with your theme   
+    color:white;
   }
 }
 

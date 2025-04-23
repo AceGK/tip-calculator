@@ -91,6 +91,14 @@ export default function Home() {
                       className={`${styles.radioLabel} ${
                         isSelected ? styles.selected : ""
                       }`}
+                      htmlFor={`tip-${val}`}
+                      tabIndex={0}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          setSelectedTip(String(val));
+                          setCustomTip("");
+                        }
+                      }}
                     >
                       <input
                         type="radio"
