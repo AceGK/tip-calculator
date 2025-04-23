@@ -33,7 +33,9 @@ const InputField: FC<InputFieldProps> = ({
         aria-labelledby={name}
         required={required}
         autoComplete={autoComplete}
-        className={align === "right" ? styles.alignRight : styles.alignLeft}
+        className={`${align === "right" ? styles.alignRight : styles.alignLeft} ${
+          value ? styles.hasValue : ""
+        }`}
         inputMode="decimal"
         pattern="^\d+(\.\d{0,2})?$"
       />

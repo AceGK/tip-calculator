@@ -114,3 +114,9 @@
 .alignLeft {
   text-align: left;
 }
+
+input.hasValue + .placeholderText .text {
+  font-size: 0.8125rem;
+  transform: translate(0, -1.70em);
+  opacity: 1;
+}
