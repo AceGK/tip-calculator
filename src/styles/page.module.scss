@@ -2,13 +2,15 @@
 
 .logo {
   text-align: center;
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
   svg {
     fill: var(--clr-accent);
     width: 100px;
     height: 100px;
-
-    @include mobile {
+  }
+  @include mobile {
+    padding-bottom: 1.5rem;
+    svg {
       width: 50px;
       height: 50px;
     }
@@ -73,15 +75,13 @@
 
 .inputRow {
   display: flex;
+  flex-wrap:wrap;
   gap: 1rem;
   margin-bottom: 1.5rem;
 
   > div {
     flex: 1;
-  }
-
-  @include mobile {
-    flex-direction: column;
+    min-width:125px;
   }
 }
 
@@ -113,7 +113,6 @@
 
 .customTipToggle {
   display: flex;
-  gap: 2px;
   position: absolute;
   top: 50%;
   right: 0.75rem;
@@ -122,6 +121,22 @@
   background: var(--glass-border);
   border-radius: 6px;
   padding: 2px;
+}
+
+.modePill {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  bottom: 2px;
+  width: calc(50% - 3px);
+  background: var(--clr-accent);
+  border-radius: 4px;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+
+  [data-mode="amt"] & {
+    transform: translateX(calc(100% + 2px));
+  }
 }
 
 .modeBtn {
@@ -134,8 +149,12 @@
   opacity: 0.45;
   border-radius: 4px;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition:
+    color 0.2s ease,
+    opacity 0.2s ease;
   line-height: 1.4;
+  position: relative;
+  z-index: 1;
 
   &:hover {
     opacity: 0.75;
@@ -143,7 +162,6 @@
 }
 
 .modeBtnActive {
-  background: var(--clr-accent);
   color: var(--clr-on-accent);
   opacity: 1;
 }
@@ -161,7 +179,9 @@
     color: var(--clr-text);
     border-radius: 14px;
     outline: none;
-    transition: border-color 0.3s, box-shadow 0.3s;
+    transition:
+      border-color 0.3s,
+      box-shadow 0.3s;
 
     &::placeholder {
       color: var(--clr-text);
@@ -186,7 +206,11 @@
 
 .results {
   flex: 1;
-  background: linear-gradient(135deg, var(--clr-accent-subtle) 0%, var(--glass-surface) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--clr-accent-subtle) 0%,
+    var(--glass-surface) 100%
+  );
   border: 1px solid var(--clr-accent-subtle);
   border-radius: 24px;
   color: var(--clr-result-text);
@@ -226,7 +250,17 @@
     font-size: 2rem;
     font-weight: 500;
     color: var(--clr-accent);
+    display: flex;
+    align-items: flex-start;
   }
+}
+
+.currencySymbol {
+  font-size: 0.6em;
+  font-weight: 400;
+  opacity: 0.55;
+  margin-top: 0.2em;
+  margin-right: 0.2em;
 }
 
 .resetContainer {
@@ -249,7 +283,9 @@
   border-radius: 50px;
   outline: none;
   cursor: pointer;
-  transition: background 0.25s, transform 0.2s;
+  transition:
+    background 0.25s,
+    transform 0.2s;
 
   svg {
     width: 1.2rem;

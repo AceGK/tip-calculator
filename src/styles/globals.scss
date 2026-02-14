@@ -39,6 +39,10 @@ body {
   box-sizing: border-box;
 }
 
+.no-transition * {
+  transition: none !important;
+}
+
 input[type='number'] {
   // Chrome, Safari, Edge, Opera
   &::-webkit-outer-spin-button,

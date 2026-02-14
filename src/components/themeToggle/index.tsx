@@ -18,7 +18,15 @@ export default function ThemeToggle() {
   return (
     <div className={styles.container}>
       <button
-        onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+        onClick={() => {
+          document.documentElement.classList.add("no-transition");
+          setTheme(resolvedTheme === "dark" ? "light" : "dark");
+          requestAnimationFrame(() =>
+            requestAnimationFrame(() =>
+              document.documentElement.classList.remove("no-transition")
+            )
+          );
+        }}
         aria-label="Toggle theme"
       >
         {resolvedTheme === "dark" ? <Sun /> : <Moon />}

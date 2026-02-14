@@ -7,6 +7,15 @@ import InputField from "@/components/input";
 import ResetIcon from "../../public/icons/arrow-rotate-left.svg";
 import ThemeToggle from "@/components/themeToggle";
 
+function Amount({ value }: { value: string }) {
+  return (
+    <>
+      <span className={styles.currencySymbol}>{value[0]}</span>
+      {value.slice(1)}
+    </>
+  );
+}
+
 export default function Home() {
   const [bill, setBill] = useState("");
   const [people, setPeople] = useState("");
@@ -129,7 +138,8 @@ export default function Home() {
                 })}
 
                 <div className={styles.customTipInputWrapper}>
-                  <div className={styles.customTipToggle}>
+                  <div className={styles.customTipToggle} data-mode={customTipMode}>
+                    <span className={styles.modePill} aria-hidden />
                     <button
                       className={`${styles.modeBtn} ${customTipMode === "pct" ? styles.modeBtnActive : ""}`}
                       onClick={() => setCustomTipMode("pct")}
@@ -165,21 +175,21 @@ export default function Home() {
                 <p>Tip</p>
                 <p>per person</p>
               </div>
-              <div>{tip}</div>
+              <div><Amount value={tip} /></div>
             </div>
             <div className={styles.item}>
               <div>
                 <p>Total</p>
                 <p>per person</p>
               </div>
-              <div>{total}</div>
+              <div><Amount value={total} /></div>
             </div>
             <div className={styles.item}>
               <div>
                 <p>Grand Total</p>
                 <p>bill + tip</p>
               </div>
-              <div>{grandTotal}</div>
+              <div><Amount value={grandTotal} /></div>
             </div>
             <div className={styles.resetContainer}>
               <button
