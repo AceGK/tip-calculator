@@ -1,11 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import styles from "@/styles/page.module.scss";
 import Logo from "../../public/logo.svg";
 import InputField from "@/components/input";
 import ResetIcon from "../../public/icons/arrow-rotate-left.svg";
 import ThemeToggle from "@/components/themeToggle";
+
+const fmt = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" });
 
 function Amount({ value }: { value: string }) {
   return (
@@ -22,48 +24,28 @@ export default function Home() {
   const [selectedTip, setSelectedTip] = useState("");
   const [customTip, setCustomTip] = useState("");
   const [customTipMode, setCustomTipMode] = useState<"pct" | "amt">("pct");
-  const [tip, setTip] = useState("$0.00");
-  const [total, setTotal] = useState("$0.00");
-  const [grandTotal, setGrandTotal] = useState("$0.00");
 
-  useEffect(() => {
-    const billValue = parseFloat(bill) || 0;
-    const peopleValue = parseInt(people) || 1;
-    let tipAmount: number;
-    if (customTip !== "") {
-      if (customTipMode === "amt") {
-        tipAmount = parseFloat(customTip) / peopleValue;
-      } else {
-        tipAmount = (billValue * (parseFloat(customTip) / 100)) / peopleValue;
-      }
-    } else {
-      const tipPct = parseFloat(selectedTip) || 0;
-      tipAmount = (billValue * (tipPct / 100)) / peopleValue;
-    }
-    const totalAmount = billValue / peopleValue + tipAmount;
+  const billValue   = parseFloat(bill) || 0;
+  const peopleValue = Math.max(1, parseInt(people) || 1);
+  const tipAmount   = customTip !== ""
+    ? customTipMode === "amt"
+      ? parseFloat(customTip) / peopleValue
+      : (billValue * parseFloat(customTip) / 100) / peopleValue
+    : (billValue * (parseFloat(selectedTip) || 0) / 100) / peopleValue;
+  const totalAmount = billValue / peopleValue + tipAmount;
 
-    const formatter = new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-    });
-
-    setTip(formatter.format(tipAmount));
-    setTotal(formatter.format(totalAmount));
-    setGrandTotal(formatter.format(totalAmount * peopleValue));
-  }, [bill, people, selectedTip, customTip, customTipMode]);
+  const tip = fmt.format(tipAmount);
+  const total = fmt.format(totalAmount);
+  const grandTotal = fmt.format(totalAmount * peopleValue);
 
   const reset = () => {
     setBill("");
     setPeople("");
     setSelectedTip("");
     setCustomTip("");
-    setTip("$0.00");
-    setTotal("$0.00");
-    setGrandTotal("$0.00");
   };
 
-  const shouldDisableReset =
-    bill === "" && selectedTip === "" && customTip === "";
+  const shouldDisableReset = bill === "" && selectedTip === "" && customTip === "";
 
   return (
     <div className={styles.container}>
@@ -109,9 +91,7 @@ export default function Home() {
                   return (
                     <label
                       key={val}
-                      className={`${styles.radioLabel} ${
-                        isSelected ? styles.selected : ""
-                      }`}
+                      className={`${styles.radioLabel} ${isSelected ? styles.selected : ""}`}
                       htmlFor={`tip-${val}`}
                       tabIndex={0}
                       onKeyDown={(e) => {
@@ -194,9 +174,7 @@ export default function Home() {
             <div className={styles.resetContainer}>
               <button
                 onClick={reset}
-                className={`${styles.reset} ${
-                  shouldDisableReset ? styles.resetFaded : ""
-                }`}
+                className={`${styles.reset} ${shouldDisableReset ? styles.resetFaded : ""}`}
                 disabled={shouldDisableReset}
               >
                 <ResetIcon /> reset
