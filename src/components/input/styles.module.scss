@@ -7,22 +7,22 @@
 
   label {
     font-weight: 600;
-    color: var(--clr-text-100);
+    color: var(--clr-text);
   }
 
   input,
   select {
     height: 3rem;
     width: 100%;
-    border: 1px solid var(--clr-border-100);
+    border: 1px solid var(--clr-border);
     border-radius: 10px;
-    background-color: var(--bg4);
+    background-color: var(--bg-input);
   }
   input:focus,
   select:focus,
   input[type="date"]:focus-within {
     outline: none;
-    border-color: var(--clr-primary-300);
+    border-color: var(--clr-focus);
   }
   input:focus + .placeholderText .text,
   select:focus + .placeholderText .text,
@@ -34,7 +34,7 @@
   input:-webkit-autofill:focus + .placeholderText .text, 
   input.hasValue + .placeholderText .text {
     border-radius:5px;
-    background-color: var(--bg4);
+    background-color: var(--bg-input);
     font-size: 0.8125rem;
     transform: translate(0, -1.70em);
     opacity:1;
@@ -42,8 +42,8 @@
   input:focus + .placeholderText .text,
   select:focus + .placeholderText .text,
   input[type="date"]:focus-within + .placeholderText .text {
-    border-color: var(--clr-primary-300);
-    color: var(--clr-primary-300);
+    border-color: var(--clr-focus);
+    color: var(--clr-focus);
   }
 
   .placeholderText {
@@ -62,7 +62,7 @@
     padding: 0 0.5rem;
     background-color: transparent;
     transform: translate(0);
-    color: var(--clr-text-100);
+    color: var(--clr-text);
     opacity: 0.9;
     transition: transform 0.15s ease-out, font-size 0.15s ease-out,
     background-color 0s, color 0s ease-out;
@@ -89,7 +89,7 @@
   select:-webkit-autofill,
   select:-webkit-autofill:hover,
   select:-webkit-autofill:focus {
-    -webkit-box-shadow: 0 0 0px 1000px var(--clr-text-100) inset !important;
+    -webkit-box-shadow: 0 0 0px 1000px var(--clr-text) inset !important;
   }
 
   input[type="date"]::-webkit-datetime-edit {
@@ -114,4 +114,26 @@
 
 .alignLeft {
   text-align: left;
+}
+
+.prefix {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--clr-text);
+  opacity: 0;
+  pointer-events: none;
+  font-size: 1rem;
+  z-index: 1;
+  transition: opacity 0.15s ease;
+}
+
+.inputContainer:focus-within .prefix,
+.inputContainer:has(input.hasValue) .prefix {
+  opacity: 0.5;
+}
+
+.hasPrefix {
+  padding-left: 1.75rem !important;
 }

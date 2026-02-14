@@ -12,16 +12,25 @@ export default function Home() {
   const [people, setPeople] = useState("");
   const [selectedTip, setSelectedTip] = useState("");
   const [customTip, setCustomTip] = useState("");
+  const [customTipMode, setCustomTipMode] = useState<"pct" | "amt">("pct");
   const [tip, setTip] = useState("$0.00");
   const [total, setTotal] = useState("$0.00");
+  const [grandTotal, setGrandTotal] = useState("$0.00");
 
   useEffect(() => {
     const billValue = parseFloat(bill) || 0;
     const peopleValue = parseInt(people) || 1;
-    const tipValue =
-      customTip !== "" ? parseFloat(customTip) : parseFloat(selectedTip) || 0;
-
-    const tipAmount = (billValue * (tipValue / 100)) / peopleValue;
+    let tipAmount: number;
+    if (customTip !== "") {
+      if (customTipMode === "amt") {
+        tipAmount = parseFloat(customTip) / peopleValue;
+      } else {
+        tipAmount = (billValue * (parseFloat(customTip) / 100)) / peopleValue;
+      }
+    } else {
+      const tipPct = parseFloat(selectedTip) || 0;
+      tipAmount = (billValue * (tipPct / 100)) / peopleValue;
+    }
     const totalAmount = billValue / peopleValue + tipAmount;
 
     const formatter = new Intl.NumberFormat("en-US", {
@@ -31,7 +40,8 @@ export default function Home() {
 
     setTip(formatter.format(tipAmount));
     setTotal(formatter.format(totalAmount));
-  }, [bill, people, selectedTip, customTip]);
+    setGrandTotal(formatter.format(totalAmount * peopleValue));
+  }, [bill, people, selectedTip, customTip, customTipMode]);
 
   const reset = () => {
     setBill("");
@@ -40,6 +50,7 @@ export default function Home() {
     setCustomTip("");
     setTip("$0.00");
     setTotal("$0.00");
+    setGrandTotal("$0.00");
   };
 
   const shouldDisableReset =
@@ -64,6 +75,7 @@ export default function Home() {
                 required
                 autoComplete="off"
                 align="right"
+                prefix="$"
               />
 
               <InputField
@@ -83,7 +95,7 @@ export default function Home() {
                 Tip
               </label>
               <div className={styles.buttonsContainer}>
-                {[15, 20, 25].map((val) => {
+                {[10, 15, 20, 25].map((val) => {
                   const isSelected = selectedTip === String(val);
                   return (
                     <label
@@ -117,16 +129,28 @@ export default function Home() {
                 })}
 
                 <div className={styles.customTipInputWrapper}>
+                  <div className={styles.customTipToggle}>
+                    <button
+                      className={`${styles.modeBtn} ${customTipMode === "pct" ? styles.modeBtnActive : ""}`}
+                      onClick={() => setCustomTipMode("pct")}
+                      type="button"
+                    >%</button>
+                    <button
+                      className={`${styles.modeBtn} ${customTipMode === "amt" ? styles.modeBtnActive : ""}`}
+                      onClick={() => setCustomTipMode("amt")}
+                      type="button"
+                    >$</button>
+                  </div>
                   <InputField
                     type="number"
                     name="customTip"
                     value={customTip}
                     onChange={(e) => {
-                      const cleaned = e.target.value.replace(/[^0-9]/g, "");
+                      const cleaned = e.target.value.replace(/[^0-9.]/g, "");
                       setCustomTip(cleaned);
                       setSelectedTip("");
                     }}
-                    placeholderText="Custom Tip %"
+                    placeholderText={customTipMode === "pct" ? "Custom %" : "Custom $"}
                     autoComplete="off"
                     align="right"
                   />
@@ -149,6 +173,13 @@ export default function Home() {
                 <p>per person</p>
               </div>
               <div>{total}</div>
+            </div>
+            <div className={styles.item}>
+              <div>
+                <p>Grand Total</p>
+                <p>bill + tip</p>
+              </div>
+              <div>{grandTotal}</div>
             </div>
             <div className={styles.resetContainer}>
               <button

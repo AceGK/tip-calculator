@@ -10,6 +10,7 @@ interface InputFieldProps {
   required?: boolean;
   autoComplete?: string;
   align?: "left" | "right";
+  prefix?: string;
 }
 
 const InputField: FC<InputFieldProps> = ({
@@ -21,9 +22,11 @@ const InputField: FC<InputFieldProps> = ({
   required = false,
   autoComplete = "off",
   align,
+  prefix,
 }) => {
   return (
     <div className={styles.inputContainer}>
+      {prefix && <span className={styles.prefix}>{prefix}</span>}
       <input
         type={type}
         id={name}
@@ -35,7 +38,7 @@ const InputField: FC<InputFieldProps> = ({
         autoComplete={autoComplete}
         className={`${align === "right" ? styles.alignRight : styles.alignLeft} ${
           value ? styles.hasValue : ""
-        }`}
+        } ${prefix ? styles.hasPrefix : ""}`}
         inputMode="decimal"
         pattern="^\d+(\.\d{0,2})?$"
       />
