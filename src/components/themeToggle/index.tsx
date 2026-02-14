@@ -3,8 +3,8 @@
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import styles from "./styles.module.scss";
-import Sun from "/public/icons/sun.svg";
-import Moon from "/public/icons/moon.svg";
+import Sun from "../../../public/icons/sun.svg";
+import Moon from "../../../public/icons/moon.svg";
 
 export default function ThemeToggle() {
   const { setTheme, resolvedTheme } = useTheme();

@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from "react";
 import styles from "@/styles/page.module.scss";
-import Logo from "/public/logo.svg";
+import Logo from "../../public/logo.svg";
 import InputField from "@/components/input";
-import ResetIcon from "/public/icons/arrow-rotate-left.svg";
+import ResetIcon from "../../public/icons/arrow-rotate-left.svg";
 import ThemeToggle from "@/components/themeToggle";
 
 export default function Home() {
